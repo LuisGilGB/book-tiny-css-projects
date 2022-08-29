@@ -1,3 +1,5 @@
+@namespace svg "http://www.w3.org/2000/svg";
+
 * {
   font-family: sans-serif;
 }
@@ -56,4 +58,8 @@ a:focus {
 
 [lang="it"]::before {
   content: "🇮🇹"
+}
+
+svg|* {
+  fill: #EDEDED;
 }

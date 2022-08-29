@@ -82,3 +82,63 @@ Attribute selectors are used to select elements based on their attributes. To ex
 ## Universal selector
 
 The `*` selector selects all elements.
+
+## Namespaces
+
+We can declare namespaces in HTML using `xmlns` attribute.
+
+```html
+
+<svg xmlns="http://www.w3.org/2000/svg">
+    <!--SVG Code-->
+</svg>
+```
+
+Namespaces are used to distinguish between different kinds of elements such as HTML, SVG or MathML.
+
+In CSS, namespaces are declared with `@namespace` rule. The value of the rule is the name of the namespace and the value
+of the attribute is the URL of the namespace.
+
+```css
+@namespace svg "http://www.w3.org/2000/svg";
+@namespace xlink "http://www.w3.org/1999/xlink";
+```
+
+Namespaces can be used to limit the spread of a universal selector to those elements within a given namespace with
+the `|` operator:
+
+- `*|*`: Selects all elements regardless of its namespace (same as just `*`).
+- `ns|*`: Selects all elements within the `ns` namespace.
+- `|*`: Selects all elements without any defined namespace.
+
+```css
+svg|* {
+  fill: #EDEDED;
+}
+```
+
+Namespaces can also be used to target specific elements with the `|` operator:
+
+```css
+svg|circle {
+  fill: #EDEDED;
+}
+```
+
+## Shorthand properties
+
+Shorthand properties are properties that can be expressed in a single rule. Examples are `margin`, `padding`
+and `border`. They not only allow us to reduce the verbosity of the rules, but can also be more performant in case we
+want to apply the same value multiple times.
+
+`padding` is a shorthand property that can apply the same value to `paddingTop`, `paddingRight`, `paddingBottom`
+and `paddingLeft`. I can accept from 1 to 4 values:
+
+| Rule                       | Effect                                                                                                                                  |
+|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `padding: 1px`             | applies the same value to all sides.                                                                                                    |
+| `padding: 1px 2px`         | applies 1 px to vertical paddings (`paddingTop` and `paddingBottom`) and 2px to horizontal paddings (`paddingRight` and `paddingLeft`). |
+| `padding: 1px 2px 3px`     | applies 1 px to `paddingTop`, 2px to horizontal paddings (`paddingRight` and `paddingLeft`) and 3px to `paddingBottom`.                 |
+| `padding: 1px 2px 3px 4px` | applies 1 px to `paddingTop`, 2px to `paddingRight`, 3px to `paddingBottom` and 4px to `paddingLeft`.                                   |
+
+Notice the usual order of the values: `top`, `right`, `bottom` and `left`.
