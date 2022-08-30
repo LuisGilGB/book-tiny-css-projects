@@ -1,0 +1,76 @@
+body {
+  background: #001c2e;
+}
+
+/* Container for the loader */
+section {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  margin: 40px auto;
+
+  /* Typography */
+  font: 300 100% 'Roboto', sans-serif;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+
+h1 {
+  font-size: 4.5vw;
+  /* Typography */
+  margin: 40px 0 12px;
+}
+
+p {
+  font-size: 2.8vw;
+  margin-top: 0;
+}
+
+rect:nth-child(1) {
+  fill: #1a9f8c
+}
+
+rect:nth-child(2) {
+  fill: #1eab8d
+}
+
+rect:nth-child(3) {
+  fill: #20b38e
+}
+
+rect:nth-child(4) {
+  fill: #22b78d
+}
+
+rect:nth-child(5) {
+  fill: #22b88e
+}
+
+rect:nth-child(6) {
+  fill: #21b48d
+}
+
+rect:nth-child(7) {
+  fill: #1eaf8e
+}
+
+rect:nth-child(8) {
+  fill: #1ca48d
+}
+
+rect:nth-child(9) {
+  fill: #17968b
+}
+
+rect:nth-child(10) {
+  fill: #128688
+}
+
+rect:nth-child(11) {
+  fill: #128688
+}
