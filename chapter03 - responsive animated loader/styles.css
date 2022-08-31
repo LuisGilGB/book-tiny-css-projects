@@ -13,12 +13,17 @@ section {
   margin: 40px auto;
 
   /* Typography */
-  font: 300 100% 'Roboto', sans-serif;
+  font: 300 100% "Roboto", sans-serif;
   text-align: center;
 
   color: #ffffff;
 }
 
+@keyframes scale {
+  from { transform: scaleY(1) }
+  50% { transform: scaleY(.2) }
+  to { transform: scaleY(1) }
+}
 
 h1 {
   font-size: 4.5vw;
@@ -31,46 +36,67 @@ p {
   margin-top: 0;
 }
 
+rect {
+  animation-name: scale;
+  animation-duration: 2.2s;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  rect { animation: none }
+}
+
 rect:nth-child(1) {
   fill: #1a9f8c
 }
 
 rect:nth-child(2) {
-  fill: #1eab8d
+  fill: #1eab8d;
+  animation-delay: .2s
 }
 
 rect:nth-child(3) {
-  fill: #20b38e
+  fill: #20b38e;
+  animation-delay: .4s
 }
 
 rect:nth-child(4) {
-  fill: #22b78d
+  fill: #22b78d;
+  animation-delay: .6s
 }
 
 rect:nth-child(5) {
-  fill: #22b88e
+  fill: #22b88e;
+  animation-delay: .8s
 }
 
 rect:nth-child(6) {
-  fill: #21b48d
+  fill: #21b48d;
+  animation-delay: 1s
 }
 
 rect:nth-child(7) {
-  fill: #1eaf8e
+  fill: #1eaf8e;
+  animation-delay: 1.2s
 }
 
 rect:nth-child(8) {
-  fill: #1ca48d
+  fill: #1ca48d;
+  animation-delay: 1.4s
 }
 
 rect:nth-child(9) {
-  fill: #17968b
+  fill: #17968b;
+  animation-delay: 1.6s
 }
 
 rect:nth-child(10) {
-  fill: #128688
+  fill: #128688;
+  animation-delay: 1.8s
 }
 
 rect:nth-child(11) {
-  fill: #128688
+  fill: #128688;
+  animation-delay: 2s
 }

@@ -39,4 +39,78 @@ values with the syntax `viewBox="min-x min-y width height"`.
 
 SVG elements have their own presentation attributes apart from the usual CSS properties. These presentation attributes
 can also be given a value inline within the element. A list of all the presentation attributes is available
-at [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/Presentation). 
+at [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/Presentation).
+
+## CSS animations
+
+Animation properties:
+
+- `animation-name`
+- `animation-timing-function`
+- `animation-iteration-count`
+- `animation-fill-mode`
+- `animation-duration`
+- `animation-delay`
+- `animation-direction`
+- `animation-play-state`
+
+They can be set with the `animation` shorthand property.
+
+### Keyframes
+
+Keyframes are the definition of a single animation through beginning to its end with any intermediate state. For each
+one
+of the milestones, a set of properties is defined and that animation will return exactly that set of properties when the
+frame time along the animation duration matches the one assigned for that state.
+
+They are defined with the `@keyframes` at rule and are given a name that will be used by the `animation-name` property
+to attach the animation defined by the property to the elements that match to the selector of the `animation-name` rule.
+
+The beginning state can be defined with `from` and the end state with `to`. Percentages can be used to set intermediate
+states, being `0%` the same as `from` (beginning) and `100%` the same as `to` (end). Any frame that doesn't match with
+any of the explicit states is calculated by the browser to interpolate frames and guarantee a smooth animation. This
+process is known as *in-betweening*.
+
+```css
+@keyframes my-animation {
+  from { transform: translateX(0) }
+  50% { transform: translateX(100px) }
+  to { transform: translateX(0px) }
+}
+
+.animated-square {
+  animation-name: my-animation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+```
+
+### Transforming elements
+
+During animations, we might be interested in changing the position, size, rotation, etc. of an element, but remain the
+surrounding elements untouched. Because of this reason, we must avoid modifying properties that affect layout such
+as `width`, `height`, `top`, `left`, etc. Instead, we can make use of the `transform` property, which allows us the use
+of functions to scale, translate or rotate, among others, elements.
+
+A full list of available transform functions can be
+found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function).
+
+By default, SVG elements have their center on their 0,0 coordinates, which is the top-left corner. To set a different
+center that will act as a point of reference, the `transform-origin` property can be used. This property accepts
+absolute numbers, percentages and keywords such as `center`, `top` or `right`. It can also take up to three values to
+set the origin coordinates in the x, y and z axis.
+
+### Reduced motion
+
+Due to accessibility reasons, browsers allow the users to select a reduced motion mode that can be used to reduce or
+disable the rate of the animations. CSS provides us the `prefers-reduced-motion` media query to detect if the user has
+checked that option.
+
+The `prefers-reduced-motion` media query has two possible values: `no-preference` and `reduce`. Being the first the one
+for when the reduced motion option is disabled and the second the one that applies when the option is enabled.
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  rect { animation: none }
+}
+```
