@@ -18,7 +18,7 @@ Viewport size can be set with the `width` and `height` attributes of a `<svg>` e
 ```html
 
 <svg width="100%" height="300px">
-    ...
+  ...
 </svg>
 ```
 
@@ -114,3 +114,33 @@ for when the reduced motion option is disabled and the second the one that appli
   rect { animation: none }
 }
 ```
+
+## Special control properties
+
+To control the color of native form controls such as check marks, radio inputs or progress bars, we have a new CSS
+property called `accent-color`.
+
+```css
+progress {
+  height: 24px;
+  width: 100%;
+  accent-color: #128688;
+}
+```
+
+In case of progress bars, changing the background color of the empty area requires vendor properties. Vendor properties
+are the ones that are prefixed following specific browsers and engines, like `-webkit-` and `-moz-`.
+
+To reset the user-agent styles, we can set the `appearance` property to `none`. For compatibility issues, the vendor
+prefixed options like `-webkit-appearance` and `-moz-appearance` can be used in combination too. By removing the
+appearance, the `accent-color` property will stop making any effect.
+
+Some progress bar specific vendor properties are:
+
+- `::-webkit-progress-inner-element` - Pseudo element of outermost part of the progress bar.
+- `::-webkit-progress-bar` - Pseudo element of the bar itself, with no progress indicator. Child
+  of `::-webkit-progress-inner-element`.
+- `::-webkit-progress-value` - Pseudo element of the progress indicator. Child of `::-webkit-progress-bar`.
+
+Mozilla only provides the pseudo class `::-moz-progress-bar`, which works as `::-webkit-progress-value`. For editing
+other styles not directly related to the bar, styling the progress element itself is required.

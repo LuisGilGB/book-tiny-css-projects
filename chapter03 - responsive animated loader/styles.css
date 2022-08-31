@@ -100,3 +100,34 @@ rect:nth-child(11) {
   fill: #128688;
   animation-delay: 2s
 }
+
+progress {
+  height: 24px;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 20px;
+  background: linear-gradient(to right, #128688 0%, #4db3ff 100%);
+  border: none;
+}
+
+::-webkit-progress-value {
+  border-radius: 20px;
+  background-color: #7be6e8;
+}
+
+::-moz-progress-bar {
+  border-radius: 20px;
+  background-color: #7be6e8;
+}
+
+::-webkit-progress-bar {
+  border-radius: 20px;
+  background: #0eb98f;
+  background: linear-gradient(to right, #128688 0%, #4db3ff 100%);
+}
+
+::-webkit-progress-inner-element {
+  border-radius: 20px;
+}
