@@ -54,3 +54,47 @@ blockquote::after {
   content: close-quote;
 }
 ```
+
+## Styling list item bullets
+
+We can use the `list-style-type` property to change the bullet style of a list. Valid values for `list-style-image`
+property are disc, circle, square, numbers or letters. `list-style-position` is also available to set if the bullet will
+be `inside` or `outside` of the list item element. A shorthand `list-style` property is available to set values for both
+properties.
+
+We can also define custom list elements with the `counter-style` at rule. This at rule allows us to define the symbol,
+the system and the suffix. Playing with the counting system is what gives this at rule its power and specific use case,
+as it tells the browser how to keep track of the list counting system and its relationship with its bullets.
+
+The symbol is set with the `symbols` property. It admits one or more values, which can be a character value or any
+custom value placed directly. An example of this are emojis, which have a Unicode value but can also be used directly:
+
+```css
+@counter-style my-counter {
+  symbols: "\2615";
+  symbols: "👍" "👎";
+}
+```
+
+Unicode values are usually listed with a `U+` prefix, but in CSS that prefix is usually replaced with a backlash (`\`).
+
+The system is set with the `system` property. It can be `cyclic`, `fixed`, `numeric`, `alphabetic`, `symbolic`
+or `additive`. The `cyclic` system will repeat the symbols in the order they are defined, being the same symbol used
+everywhere if only one is provided.
+
+The suffix is set with the `suffix` property. It stores the string that is used following the bullet symbol (a dot in
+case of default ordered lists with bullets such as  `1.`, `c.` or `IV.`).
+
+Custom `counter-style` at rules are given a name that can be referenced in the `list-style-type` property of a list.
+
+```css
+@counter-style my-counter {
+  system: cyclic;
+  symbols: "👍" "👎";
+  suffix: " ";
+}
+
+ul {
+  list-style-type: my-counter;
+}
+```

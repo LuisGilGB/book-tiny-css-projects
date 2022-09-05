@@ -50,3 +50,13 @@ blockquote {
 blockquote::before { content: open-quote; }
 
 blockquote::after { content: close-quote; }
+
+@counter-style hot-emoji {
+  system: cyclic;
+  symbols: "☕";
+  suffix: "";
+}
+
+article ul {
+  list-style-type: hot-emoji;
+}
