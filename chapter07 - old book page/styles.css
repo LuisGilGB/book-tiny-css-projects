@@ -38,3 +38,19 @@ p:first-of-type::first-letter {
   line-height: .4;
   font-family: "Passions Conflict", cursive;
 }
+
+img.compass {
+  aspect-ratio: 1;
+  float: right;
+  shape-outside: circle(50%);
+  clip-path: circle(50%);
+  margin-left: 1rem;
+}
+
+img.dog {
+  aspect-ratio: 126 / 161;
+  float: left;
+  shape-outside: url("https://raw.githubusercontent.com/michaelgearon/Tiny-CSS-Projects/main/chapter-07/before/img/dog.svg");
+  shape-margin: 1em;
+  margin-right: 1em;
+}
