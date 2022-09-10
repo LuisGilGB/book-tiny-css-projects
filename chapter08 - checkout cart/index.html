@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Chapter 8: Creating a shopping cart | Tiny CSS</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+<main>
+  <h1>Checkout</h1>
+  <div class="section-container">
+    <section>
+      <h2>My Cart</h2>
+      <table>
+        <thead>
+        <tr>
+          <th>Image</th>
+          <th>Item</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><img alt="Red grapes" loading="lazy" src="./img/grapes.jpg" width="75"></td>
+          <td data-name="Item">Red Grapes, 1lb</td>
+          <td data-name="Unit Price">$ 3.23</td>
+          <td data-name="Quantity">
+            <input aria-errormessage="grapeError" aria-label="Pounds of grape baskets" id="grapes" max="99" min="0" name="grapes"
+                   type="number" value="-1">
+            <p aria-live="polite" class="error" id="grapeError" role="alert">
+              Must be a whole number between 0 and 99
+            </p>
+          </td>
+          <td data-name="Total">
+            <!-- value calculated & inserted by JS -->
+          </td>
+          <td>
+            <button class="destructive" type="button">
+              <img alt="remove grapes" src="./img/icons/remove.svg" width="24">
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img alt="A Pineapple" loading="lazy" src="./img/pineapple.jpg" width="75"></td>
+          <td data-name="Item">Pineapple</td>
+          <td data-name="Unit Price">$ 2.29</td>
+          <td data-name="Quantity">
+            <input aria-errormessage="pineappleError" aria-label="Number of Pineapples" id="pineapple" max="99" min="0" name="pineapple"
+                   type="number" value="2">
+            <p aria-live="polite" class="error" id="pineappleError" role="alert">
+              Must be a whole number between 0 and 99
+            </p>
+          </td>
+          <td data-name="Total">
+            <!-- value calculated & inserted by JS -->
+          </td>
+          <td>
+            <button class="destructive" type="button">
+              <img alt="remove pineapples" src="./img/icons/remove.svg" width="24">
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img alt="A Strawberry" loading="lazy" src="./img/strawberry.jpg" width="75"></td>
+          <td data-name="Item">Strawberries, 1lb</td>
+          <td data-name="Unit Price">$ 4.62</td>
+          <td data-name="Quantity">
+            <input aria-errormessage="strawberriesError" aria-label="Pounds of Strawberries" id="strawberries" max="99" min="0"
+                   name="strawberries" type="number" value="3">
+            <p aria-live="polite" class="error" id="strawberriesError" role="alert">
+              Must be a whole number between 0 and 99
+            </p>
+          </td>
+          <td data-name="Total">
+            <!-- value calculated & inserted by JS -->
+          </td>
+          <td>
+            <button class="destructive" type="button">
+              <img alt="remove strawberries" src="./img/icons/remove.svg" width="24">
+            </button>
+          </td>
+        </tr>
+        </tbody>
+
+        <tfoot>
+        <tr>
+          <th colspan="4" scope="row">Total:</th>
+          <td id="total">
+            <!-- value calculated & inserted by JS -->
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <section class="summary">
+      <h2>Summary</h2>
+      <dl>
+        <dt>Number of Items</dt>
+        <dd id="itemQty">
+          <!-- value calculated & inserted by JS -->
+        </dd>
+
+        <dt>Order Total</dt>
+        <dd id="orderTotal">
+          <!-- value calculated & inserted by JS -->
+        </dd>
+
+        <dt>Shipping</dt>
+        <dd>$ 5.00</dd>
+
+        <dt>Total</dt>
+        <dd id="grandTotal"></dd>
+      </dl>
+      <div class="actions">
+        <a class="button primary" href="" type="button">Proceed to Checkout</a>
+        <a class="button secondary" href="" type="button">Continue Shopping</a>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+
+<script src="./script.js"></script>
+
+</html>
