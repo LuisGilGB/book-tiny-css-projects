@@ -92,7 +92,7 @@ table {
   border-collapse: collapse;
 }
 
-th, dt {
+th, dt, td[data-name]:before {
   color: #3a3a3a;
   font-weight: normal;
   font-size: .875em;
@@ -110,10 +110,107 @@ tr {
   border-top: solid 1px #aeb7b7;
 }
 
+dt:after {
+  content: ":";
+}
+
 tfoot td {
   font-weight: bold;
 }
 
-dt:after {
-  content: ":";
+/** LAYOUT **/
+body {
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+section {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 2px 2px 7px #aeb7b7;
+  margin: 1rem 0;
+}
+
+section h2 {
+  padding: 1rem;
+  margin: 0;
+}
+
+table {
+  table-layout: fixed;
+}
+
+table image {
+  max-width: 100%;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: auto max-content;
+  gap: .5rem;
+  padding: 0 1rem;
+}
+
+dd {
+  text-align: right;
+}
+
+.actions {
+  padding: 1rem;
+  text-align: center;
+}
+
+.actions a {
+  margin-bottom: .5rem;
+}
+
+@media (max-width: 549px) {
+  thead {
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    height: 0;
+  }
+
+  tr {
+    display: block;
+    padding: 1rem;
+  }
+
+  td {
+    display: block;
+    text-align: right;
+    padding: .25rem 0;
+  }
+
+  table img {
+    float: left;
+    margin-right: 1rem;
+  }
+
+  td[data-name]:before {
+    content: attr(data-name) ":";
+    float: left;
+  }
+
+  tfoot tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+
+@media (min-width: 550px) {
+  table {
+    table-layout: fixed;
+  }
+
+  table img {
+    width: auto;
+    max-width: 100%;
+  }
+
+  td[data-name]:before {
+    content: attr(data-name) ":";
+  }
 }

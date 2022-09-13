@@ -73,3 +73,15 @@ section.card {
   box-shadow: inset 2px 2px 10px 0 rgba(0, 0, 0, 0.2);
 }
 ```
+
+## The `attr()` function
+
+The `attr()` function takes the key of an attribute of the selected element and returns its value.
+
+```css
+/* Selects the element with the `data-price` attribute */
+td[data-price] {
+  /* Sets the content of the element to the value of the `data-price` attribute */
+  content: attr(data-price);
+}
+```
