@@ -85,3 +85,17 @@ td[data-price] {
   content: attr(data-price);
 }
 ```
+
+## Fixing table columns width
+
+By default, table columns take the width required by their content. This has the downside of making the columns shift
+and resize often with highly dynamic content. To fix this, we can set the `width` property of the `table` element to
+`100%` and the `table-layout` property to `fixed`. This will make the table to take the full width of its container and
+to set the width of the columns to the width of the content of the first row.
+
+```css
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+```

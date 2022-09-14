@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+/** THEME **/
 
 body {
   font-family: "Raleway", sans-serif;
   color: #171717;
   font-variant-numeric: lining-nums;
+  background: #fbffff;
 }
 
 h1, h2 {
@@ -16,26 +17,29 @@ section {
   box-shadow: 2px 2px 7px #aeb7b7;
 }
 
-button, .button, input {
-  display: inline-block;
+button,
+.button,
+input {
   background: none;
   border-radius: 4px;
-  border: solid 1px #ddd;
   padding: 1ex 1ch;
+  border: solid 1px #ddd;
   text-decoration: none;
+  display: inline-block;
 }
 
-button:hover, .button:hover, button:focus, .button:focus {
-  outline: 1px #2c6c69;
+input[type="number"] { text-align: right; }
+
+button:hover,
+.button:hover {
+  outline: dotted 1px #2c6c69;
   outline-offset: 2px;
 }
 
-button:hover, .button:hover {
-  outline-style: dotted;
-}
-
-button:focus, .button:focus {
-  outline-style: solid;
+button:focus,
+.button:focus {
+  outline: solid 1px #2c6c69;
+  outline-offset: 2px;
 }
 
 button.primary,
@@ -60,7 +64,8 @@ button.destructive {
   padding: 0;
 }
 
-button.destructive:hover, button.destructive:focus {
+button.destructive:hover,
+button.destructive:focus {
   outline-color: #9d1616;
 }
 
@@ -80,11 +85,15 @@ input:invalid {
   content: url("./img/icons/error.svg");
   width: 1em;
   float: left;
-  margin-right: .25em;
+  margin-right: .25rem;
 }
 
 input:invalid + .error {
   display: block;
+}
+
+section {
+  overflow: hidden;
 }
 
 table {
@@ -98,12 +107,13 @@ th, dt, td[data-name]:before {
   font-size: .875em;
 }
 
-tbody tr:nth-of-type(even) {
-  background: #f2fcfc;
+tbody td:nth-of-type(2),
+tfoot td {
+  font-weight: bold;
 }
 
-tbody td:nth-of-type(2) {
-  font-weight: bold;
+tbody tr:nth-of-type(even) {
+  background: #f2fcfc;
 }
 
 tr {
@@ -111,49 +121,32 @@ tr {
 }
 
 dt:after {
-  content: ":";
-}
-
-tfoot td {
-  font-weight: bold;
+  content: ": ";
 }
 
 /** LAYOUT **/
+
 body {
   padding: 1rem;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
-section {
-  background: white;
-  border-radius: 4px;
-  box-shadow: 2px 2px 7px #aeb7b7;
-  margin: 1rem 0;
-}
+section { margin: 1rem 0; }
 
 section h2 {
   padding: 1rem;
   margin: 0;
 }
 
-table {
-  table-layout: fixed;
-}
-
-table image {
-  max-width: 100%;
-}
-
 dl {
   display: grid;
-  grid-template-columns: auto max-content;
   gap: .5rem;
+  grid-template-columns: auto max-content;
   padding: 0 1rem;
 }
 
-dd {
-  text-align: right;
-}
+dd { text-align: right; }
 
 .actions {
   padding: 1rem;
@@ -164,17 +157,15 @@ dd {
   margin-bottom: .5rem;
 }
 
+td > input {
+  max-width: 100%;
+}
+
+/** Mobile view table **/
 @media (max-width: 549px) {
   thead {
-    display: block;
-    overflow: hidden;
-    visibility: hidden;
-    height: 0;
-  }
-
-  tr {
-    display: block;
-    padding: 1rem;
+    position: absolute;
+    left: -9999rem;
   }
 
   td {
@@ -193,6 +184,11 @@ dd {
     float: left;
   }
 
+  tr {
+    display: block;
+    padding: 1rem;
+  }
+
   tfoot tr {
     display: flex;
     justify-content: space-between;
@@ -200,9 +196,14 @@ dd {
   }
 }
 
+/** Handling medium screens **/
 @media (min-width: 550px) {
-  table {
-    table-layout: fixed;
+
+  table { table-layout: fixed; }
+
+  th, td {
+    padding: .5rem;
+    text-align: left;
   }
 
   table img {
@@ -210,7 +211,24 @@ dd {
     max-width: 100%;
   }
 
-  td[data-name]:before {
-    content: attr(data-name) ":";
+  th:nth-of-type(n+3),
+  td:nth-of-type(n+3) {
+    text-align: right;
   }
+
+  tfoot th, tfoot td { text-align: right; }
+}
+
+/** Handling wide screens **/
+@media (min-width: 995px) {
+  .section-container {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .summary {
+    min-width: 250px;
+  }
+
+  section { margin: 0; }
 }
