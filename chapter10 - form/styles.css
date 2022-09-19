@@ -1,0 +1,24 @@
+html {
+  --color: #333333;
+  --font-family: sans-serif;
+  font-size: 12pt;
+  color: var(--color);
+  font-family: var(--font-family);
+  --background: #fafafa;
+  --background-card: #fff5dc;
+  --accent: #086788;
+  --accent-contrast: #ffffff;
+  --error: #dd1c1aff;
+  --border: #ddd;
+  --hover: #bee0eb;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background);
+  background-image: radial-gradient(var(--accent) .75px, transparent .75px);
+  background-size: 15px 15px;
+  margin: 0;
+  padding: 2rem;
+}
