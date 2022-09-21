@@ -41,3 +41,14 @@ fieldset {
   padding: 0;
   min-width: 0;
 }
+
+input:not([type="radio"],[type="checkbox"]) {
+  background: var(--background);
+  font-size: 1rem;
+  color: inherit;
+  display: block;
+  border: solid 1px var(--border);
+  border-radius: 32px;
+  padding: 1rem 2rem;
+  width: calc(100% - 4rem);
+}
