@@ -1,6 +1,6 @@
 # Chapter 10 - Styling forms
 
-## The not pseudo-class
+## The `:not()` pseudo-class
 
 The `:not()` pseudo-class is a CSS3 feature that allows us to select elements that do not meet a particular criteria. We
 can set different selectors to avoid separated by commas.
@@ -33,6 +33,23 @@ element. This can be used to make the border share the color with parent's text.
 ```css
 input {
   border: 1px solid currentColor;
+}
+```
+
+## The `linear-gradient()` function
+
+The `linear-gradient()` function is a CSS3 feature that allows us to create a linear gradient. It takes a list of color
+and position references as arguments. The first color is the starting color and the last color is the ending color. The
+position references are optional and they're used to define the position of the color in the gradient. If no position is
+specified, the color is evenly distributed in the gradient.
+
+The arguments can be preceded by an angle or direction that sets the gradient direction. This direction takes 0 degrees
+as from bottom to top, 90 degrees as left to right, 180 degrees as top to bottom and 270 degrees as right to left. In
+other words, it takes clockwise direction with 0 at top.
+
+```css
+input {
+  background: linear-gradient(90deg, #ccf, #aad 33%, #99c);
 }
 ```
 
@@ -81,3 +98,25 @@ input[type="radio"]:checked::before {
   border-radius: 50%;
 }
 ```
+
+## Styling select elements
+
+The `select` element is a bit more complex than the previous ones. It relies on native supports from the operating
+system that are harder to override.
+
+The first thing we need to completely restyle s `select` element is to hide the native control. This is done by using
+the `appearance` property with the `none` value. Then we can add our custom design for a control with the `background-`
+properties.
+
+```css
+select {
+  appearance: none;
+  background-size: 1rem 1rem;
+  background-image: linear-gradient(135deg, white 50%, transparent 50%), linear-gradient(90deg, #ccf, #aad 33%, #99c); /* Add all the stuff you need for your design */
+  background-repeat: no-repeat;
+  background-position: right 0.5em top 50%, 0 0;
+}
+```
+
+Child `option` elements only allow us to style the text and the background; but we can't style the background of the
+selected `option`.

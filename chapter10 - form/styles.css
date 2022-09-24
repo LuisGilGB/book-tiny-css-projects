@@ -40,6 +40,7 @@ fieldset {
   margin: 0;
   padding: 0;
   min-width: 0;
+  margin: 1rem 0
 }
 
 input:not([type="radio"],[type="checkbox"]), textarea, select {
@@ -104,4 +105,104 @@ input[type="checkbox"]::before {
 
 :where(input[type="radio"], input[type="checkbox"]):checked::before {
   background-color: var(--accent);
+}
+
+select {
+  width: 100%;
+  appearance: none;
+  background-size: 1rem 1rem;
+  background-image: linear-gradient(225deg, transparent 50%, var(--background) 50%),
+  linear-gradient(135deg, transparent 50%, var(--background) 50%),
+  linear-gradient(var(--accent), var(--accent));
+  background-position: calc(100% - 1rem) calc(50% + .33rem);
+  background-repeat: no-repeat;
+}
+
+label, legend {
+  display: block;
+  margin: 1rem 0 0 2rem;
+  font-size: .875rem;
+}
+
+fieldset label {
+  margin: .5rem 0 0 2rem;
+}
+
+button {
+  background: none;
+  border: none;
+  border-radius: 36px;
+  padding: 1rem 3rem;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+button[type="submit"] {
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: bold;
+  text-transform: uppercase;
+  border: solid 1px var(--accent);
+}
+
+button[type="reset"] {
+  color: var(--accent);
+  border: solid 1px var(--accent);
+  box-sizing: border-box;
+  text-transform: lowercase;
+}
+
+.actions {
+  margin-top: 1rem;
+}
+
+.error {
+  color: var(--error);
+  font-weight: bold;
+  margin-left: 2rem;
+}
+
+.error span {
+  display: none;
+}
+
+.error span::before {
+  content: "Error: ";
+}
+
+.dirty:invalid + .error span {
+  display: inline;
+}
+
+:is(input, textarea).dirty:invalid {
+  border-color: var(--error);
+}
+
+:focus-visible {
+  outline: solid 2px var(--accent);
+  outline-offset: -2px;
+}
+
+.dirty:invalid:focus-visible {
+  outline-color: var(--error);
+}
+
+:where(input[type="radio"], input[type="checkbox"], button):focus-visible {
+  outline-offset: 2px;
+}
+
+:is(input, input:not([type="radio"], [type="checkbox"]), textarea, select, button):hover {
+  border-color: var(--accent);
+}
+
+@media (forced-colors: active) {
+  :where(input[type="radio"], input[type="checkbox"]):checked::before {
+    background-color: CanvasText;
+  }
+
+  select {
+    appearance: auto;
+  }
 }
