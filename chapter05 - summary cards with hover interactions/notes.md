@@ -41,7 +41,17 @@ A header-main-footer layout can be defined with CSS grid by using the `grid-temp
 }
 ```
 
+## The `text-transform` impact on semantics
+
+The `text-transform` property can be used to change the case of the text; but at contrary to having a text already
+cased in the HTML or modifying its casing with JavaScript, it doesn't impact in how screen readers read that text.
+The CSS property approach is the preferred one when having a text as uppercase is just a visual goal.
+
 ## `min-content` and margins
 
 The `min-content` value for the `width` property will make the element as wide as its content, plus the margins. The
 same happens with the `height` property.
+
+## The `focus-within` pseudo-class
+
+The `focus-within` pseudo-class can be used to style an element when any of its descendants has focus.

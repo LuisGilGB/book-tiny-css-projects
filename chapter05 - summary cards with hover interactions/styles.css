@@ -5,6 +5,7 @@ body {
   padding: 20px;
   display: grid;
   place-items: center;
+  background: #010101;
 }
 
 h1 {
@@ -93,12 +94,38 @@ section a:focus {
   outline-offset: 3px;
 }
 
+@media (hover: hover) and (min-width: 700px) and (prefers-reduced-motion: no-preference) {
+  main > section > div {
+    height: 5rem;
+    transform: translateY(calc(var(--section-height) - 8rem));
+    overflow: hidden;
+  }
+
+  main > section > div > *:not(h2) {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  main > section:hover > div,
+  main > section:focus-within > div {
+    transform: translateY(0);
+    height: calc(var(--section-height) - 2 * var(--section-inner-margin) - 2 * var(--section-inner-padding));
+  }
+
+  main > section:hover > div > *:not(h2),
+  main > section:focus-within > div > *:not(h2) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (min-width: 700px) {
   main {
     grid-template-columns: repeat(2, 1fr);
   }
 
   main > section {
+    --section-height: 350px;
     height: 350px;
   }
 }
